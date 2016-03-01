@@ -2,10 +2,13 @@
   @license sc-date-time
  @author SimeonC
  @license 2015 MIT
- @version 1.1.6
+ @version 1.1.7
   
   See README.md for requirements and use.
-*/angular.module('scDateTime', []).value('scDateTimeConfig', {
+*/
+'use strict';
+
+angular.module('scDateTime', []).value('scDateTimeConfig', {
   defaultTheme: 'material',
   autosave: false,
   defaultMode: 'date',

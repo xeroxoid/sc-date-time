@@ -46,7 +46,7 @@ gulp.task('compile:javascript', ['compile:copy'], function() {
   return gulp.src(['./dist/sc-date-time.js', './dist/*.tpl.temp'])
     .pipe(order(['dist/sc-date-time.js', 'dist/*.tpl.temp']))
     .pipe(concat('sc-date-time.js'))
-    .pipe(concat.header('/*\n  @license sc-date-time\n @author SimeonC\n @license 2015 MIT\n @version ' + pkg.version + '\n  \n  See README.md for requirements and use.\n*/'))
+    .pipe(concat.header('/*\n  @license sc-date-time\n @author SimeonC\n @license 2015 MIT\n @version ' + pkg.version + '\n  \n  See README.md for requirements and use.\n*/\n'))
     .pipe(gulp.dest('dist'));
 });
 
@@ -57,7 +57,7 @@ gulp.task('compile:less', ['clean:dist'], function() {
     .pipe(less())
     .pipe(autoprefixer())
     .pipe(concat())
-    .pipe(concat.header('/*\n  @license sc-date-time\n @author SimeonC\n @license 2015 MIT\n @version ' + pkg.version + '\n  \n  See README.md for requirements and use.\n*/'))
+    .pipe(concat.header('/*\n  @license sc-date-time\n @author SimeonC\n @license 2015 MIT\n @version ' + pkg.version + '\n  \n  See README.md for requirements and use.\n*/\n'))
     .pipe(rename('sc-date-time.css'))
     .pipe(gulp.dest('dist'));
 });
