@@ -1,6 +1,11 @@
-scDateTime (formerly mdDateTime)
+A LESS/JS fork of scDateTime by SimonC
 ===========
 
+
+## Why the fork?
+
+1. We needed something maintainable and to our coding standards.
+2. ```rem``` dont seem to work well for all deployments so we changed to ```px```
 
 ## Requirements
 
@@ -16,7 +21,8 @@ scDateTime (formerly mdDateTime)
 
 **Via Bower:**
 
-Run `bower install sc-date-time` from the command line.
+Run `bower install https://github.com/xeroxoid/sc-date-time.git` from the command line.
+
 Include script tags similar to the following:
 ```html
 <link rel='stylesheet' href='/bower_components/sc-date-time/dist/sc-date-time.css'>
