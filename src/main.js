@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('scDateTime', []).value('scDateTimeConfig', {
   defaultTheme: 'material',
   autosave: false,
