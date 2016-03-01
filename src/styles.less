@@ -1,13 +1,13 @@
 //Less styling
-@color_1: #e1e1e1;
-@color_2: rgba(255, 255, 255, 0.5);
-@color_3: #737373;
-@color_4: #202020;
-@color_5: #009688;
-@color_6: #fff;
-@color_7: #e6e6e6;
-@color_8: #aaa;
-@color_9: transparent;
+@color1: #e1e1e1;
+@color2: rgba(255, 255, 255, 0.5);
+@color3: #737373;
+@color4: #202020;
+@color5: #009688;
+@color6: #fff;
+@color7: #e6e6e6;
+@color8: #aaa;
+@color9: transparent;
 @width1: initial;
 @width2: 231px;
 @width6: 84px;
@@ -16,7 +16,6 @@
 @height2: 209px; // Appears 5 times
 @height4: 442px; // Appears 2 times
 @height7: 100px; // Appears 2 times
-
 .visuallyhidden {
   visibility: hidden;
 }
@@ -57,7 +56,7 @@
     text-align: center;
     >.title {
       background-color: #00796b;
-      color: @color_1;
+      color: @color1;
       line-height: 25px;
     }
     >.content {
@@ -69,7 +68,7 @@
       padding: 23px 0;
       font-size: 15px;
       background-color: #009688;
-      color: @color_1;
+      color: @color1;
       >.super-title {
         text-transform: uppercase;
       }
@@ -83,7 +82,7 @@
         }
       }
       >.sub-title {
-        color: @color_2;
+        color: @color2;
       }
     }
   }
@@ -97,7 +96,7 @@
     >.full-title {
       display: none;
       background-color: #00796b;
-      color: @color_1;
+      color: @color1;
       line-height: 24px;
     }
     >.slider {
@@ -148,7 +147,7 @@
           font-weight: 500;
           font-size: 10px;
           padding-left: 15px;
-          color: @color_3;
+          color: @color3;
           text-align: left;
           >.day-cell {
             text-align: center;
@@ -172,25 +171,25 @@
           padding-left: 15px;
           width: 208px;
           .day-cell {
-            color: @color_4;
+            color: @color4;
             &:hover {
-              color: @color_7;
+              color: @color7;
               background-color: #00baa9;
             }
             &:active {
-              color: @color_7;
+              color: @color7;
               background-color: #00baa9;
             }
             &:disabled {
-              color: @color_8;
+              color: @color8;
               background-color: none;
             }
           }
           .day-cell.today {
-            color: @color_5;
+            color: @color5;
           }
           .day-cell.selected {
-            color: @color_6;
+            color: @color6;
             background-color: #009688;
           }
         }
@@ -324,10 +323,10 @@
     text-align: right;
   }
   button {
-    color: @color_5;
+    color: @color5;
   }
   .button {
-    color: @color_5;
+    color: @color5;
   }
   &:not(.full-mode).compact {
     width: 228px;
@@ -416,25 +415,25 @@
 
 .time-date.time-mode-add {
   >.display {
-    color: @color_9 !important;
+    color: @color9 !important;
   }
 }
 
 .time-date.time-mode-remove {
   >.display {
-    color: @color_9 !important;
+    color: @color9 !important;
   }
 }
 
 .time-date.date-mode-add {
   >.display {
-    color: @color_9 !important;
+    color: @color9 !important;
   }
 }
 
 .time-date.date-mode-remove {
   >.display {
-    color: @color_9 !important;
+    color: @color9 !important;
   }
 }
 
@@ -520,7 +519,7 @@
   >.buttons {
     background-color: #009688;
     >button {
-      color: @color_6 !important;
+      color: @color6 !important;
     }
   }
 }
