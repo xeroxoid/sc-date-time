@@ -1,4 +1,4 @@
-A LESS/JS fork of scDateTime by SimonC
+A LESS/JS fork of scDateTime by SimeonC
 ===========
 
 
