@@ -38,7 +38,7 @@
   text-align: center;
 }
 .time-date > .display > .title {
-  background-color: #00796b;
+  background-color: #704A90;
   color: #e1e1e1;
   line-height: 25px;
 }
@@ -50,7 +50,7 @@
   top: 24px;
   padding: 23px 0;
   font-size: 15px;
-  background-color: #009688;
+  background-color: #9068B1;
   color: #e1e1e1;
 }
 .time-date > .display > .content > .super-title {
@@ -78,7 +78,7 @@
 }
 .time-date > .control > .full-title {
   display: none;
-  background-color: #00796b;
+  background-color: #704A90;
   color: #e1e1e1;
   line-height: 24px;
 }
@@ -161,22 +161,22 @@
 }
 .time-date > .control > .slider > .date-control > .days .day-cell:hover {
   color: #e6e6e6;
-  background-color: #00baa9;
+  background-color: #696969;
 }
 .time-date > .control > .slider > .date-control > .days .day-cell:active {
   color: #e6e6e6;
-  background-color: #00baa9;
+  background-color: #696969;
 }
 .time-date > .control > .slider > .date-control > .days .day-cell:disabled {
   color: #aaa;
   background-color: none;
 }
 .time-date > .control > .slider > .date-control > .days .day-cell.today {
-  color: #009688;
+  color: #9068B1;
 }
 .time-date > .control > .slider > .date-control > .days .day-cell.selected {
   color: #fff;
-  background-color: #009688;
+  background-color: #9068B1;
 }
 .time-date > .control > .slider > .time-control {
   float: left;
@@ -281,10 +281,10 @@
   text-align: right;
 }
 .time-date button {
-  color: #009688;
+  color: #9068B1;
 }
 .time-date .button {
-  color: #009688;
+  color: #9068B1;
 }
 .time-date:not(.full-mode).compact {
   width: 228px;
@@ -412,7 +412,7 @@
   display: none;
 }
 .time-date.full-mode > .buttons {
-  background-color: #009688;
+  background-color: #9068B1;
 }
 .time-date.full-mode > .buttons > button {
   color: #fff !important;
@@ -467,7 +467,7 @@
   width: 100%;
   float: left;
 }
-@media (max-width: 51rem) {
+@media (max-width: 510px) {
   .time-date {
     width: 231px;
   }
