@@ -220,7 +220,7 @@ angular.module('scDateTime', []).value('scDateTimeConfig', {
               return results;
             })(),
             offsetMargin: function() {
-              return (new Date(this._year, this._month).getDay() * 2.7) + 'rem';
+              return (new Date(this._year, this._month).getDay() * 27) + 'px';
             },
             isVisible: function(d) {
               return new Date(this._year, this._month, d).getMonth() === this._month;
