@@ -1,14 +1,11 @@
 /*
-	@license sc-date-time
-	@author SimeonC
-	@license 2015 MIT
-	@version 1.1.6
-	
-	See README.md for requirements and use.
-*//* Start Variable Declaration */
-/* End Variable Declaration */
-/* Start Main Styling */
-.visuallyhidden {
+  @license sc-date-time
+ @author SimeonC
+ @license 2015 MIT
+ @version 1.1.6
+  
+  See README.md for requirements and use.
+*/.visuallyhidden {
   visibility: hidden;
 }
 .time-date {
@@ -17,38 +14,6 @@
   width: 46.1rem;
   font-size: 1.2rem;
 }
-.time-date[theme=bootstrap] .btn {
-  outline: 0;
-  line-height: 2.4rem;
-  text-transform: uppercase;
-  padding-top: 0;
-  padding-bottom: 0;
-  font-weight: inherit;
-  font-size: inherit;
-}
-.time-date[theme=bootstrap] > .control > .slider > .date-control > .days > .day-cell {
-  line-height: 2.3rem;
-  border-radius: 3px;
-  text-decoration: none;
-}
-.time-date[theme=bootstrap] > .control > .slider > .date-control > .days > .day-cell:hover {
-  text-decoration: none;
-}
-.time-date[theme=bootstrap] > .control > .slider > .date-control > .days > .day-cell.today {
-  position: relative;
-}
-.time-date[theme=bootstrap] > .control > .slider > .date-control > .days > .day-cell.today::after {
-  content: " ";
-  position: absolute;
-  bottom: 0.2rem;
-  right: 0.2rem;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0 0.5rem 0.5rem;
-  border-color: transparent transparent currentColor transparent;
-}
-.time-date[theme=material] .md-button,
 .time-date:not([theme]) .md-button {
   padding: 6px;
   margin: 0;
@@ -57,7 +22,6 @@
   line-height: inherit;
   font-size: inherit;
 }
-.time-date[theme=material] > .control > .slider > .date-control .day-cell,
 .time-date:not([theme]) > .control > .slider > .date-control .day-cell {
   border-radius: 3rem;
 }
@@ -67,7 +31,10 @@
   height: 100%;
   cursor: pointer;
   -webkit-transition: color 0.6s ease-in-out;
-          transition: color 0.6s ease-in-out;
+  transition: color 0.6s ease-in-out;
+  height: 20.9rem;
+  float: left;
+  text-align: center;
 }
 .time-date > .display > .title {
   background-color: #00796b;
@@ -98,12 +65,15 @@
   margin-left: 0.3rem;
 }
 .time-date > .display > .content > .sub-title {
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 .time-date > .control {
   width: 53%;
   overflow-x: hidden;
   position: relative;
+  height: 20.9rem;
+  float: left;
+  text-align: center;
 }
 .time-date > .control > .full-title {
   display: none;
@@ -115,41 +85,26 @@
   position: absolute !important;
   width: 200%;
   -webkit-transition: left 0.6s ease-in-out;
-          transition: left 0.6s ease-in-out;
+  transition: left 0.6s ease-in-out;
 }
-.time-date > .control > .slider > .date-control,
-.time-date > .control > .slider > .time-control,
-.time-date > .control > .slider > .switch-control {
+.time-date > .control > .slider > .date-control {
   float: left;
   height: 20.9rem;
-}
-.time-date > .control > .slider > .date-control,
-.time-date > .control > .slider > .time-control {
   width: 45%;
   overflow-y: hidden;
-}
-.time-date > .control > .slider > .switch-control {
-  width: 10%;
-  cursor: pointer;
-  padding: 0 0.6rem;
-}
-.time-date > .control > .slider > .switch-control > i.fa:first-child {
-  margin-right: 1.4rem;
-}
-.time-date > .control > .slider > .switch-control > i.fa:last-child {
-  margin-left: 1.4rem;
 }
 .time-date > .control > .slider > .date-control > .title {
   font-weight: 500;
   line-height: 2.4rem;
 }
-.time-date > .control > .slider > .date-control > .title:after,
+.time-date > .control > .slider > .date-control > .title:after {
+  display: table;
+  content: " ";
+  clear: both;
+}
 .time-date > .control > .slider > .date-control > .title:before {
   display: table;
   content: " ";
-}
-.time-date > .control > .slider > .date-control > .title:after {
-  clear: both;
 }
 .time-date > .control > .slider > .date-control > .title > span.month-part {
   cursor: pointer;
@@ -203,14 +158,10 @@
 .time-date > .control > .slider > .date-control > .days .day-cell {
   color: #202020;
 }
-.time-date > .control > .slider > .date-control > .days .day-cell.today {
-  color: #009688;
+.time-date > .control > .slider > .date-control > .days .day-cell:hover {
+  color: #e6e6e6;
+  background-color: #00baa9;
 }
-.time-date > .control > .slider > .date-control > .days .day-cell.selected {
-  color: #fff;
-  background-color: #009688;
-}
-.time-date > .control > .slider > .date-control > .days .day-cell:hover,
 .time-date > .control > .slider > .date-control > .days .day-cell:active {
   color: #e6e6e6;
   background-color: #00baa9;
@@ -219,7 +170,18 @@
   color: #aaa;
   background-color: none;
 }
+.time-date > .control > .slider > .date-control > .days .day-cell.today {
+  color: #009688;
+}
+.time-date > .control > .slider > .date-control > .days .day-cell.selected {
+  color: #fff;
+  background-color: #009688;
+}
 .time-date > .control > .slider > .time-control {
+  float: left;
+  height: 20.9rem;
+  width: 45%;
+  overflow-y: hidden;
   position: relative;
 }
 .time-date > .control > .slider > .time-control > .time-inputs {
@@ -230,7 +192,15 @@
   left: 0;
   right: 0;
 }
-.time-date > .control > .slider > .time-control > .time-inputs > .hours,
+.time-date > .control > .slider > .time-control > .time-inputs > .hours {
+  font-size: 3rem;
+  line-height: 1rem;
+  width: 8.4rem;
+  margin: 0 0.8rem;
+  position: absolute;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
 .time-date > .control > .slider > .time-control > .time-inputs > .minutes {
   font-size: 3rem;
   line-height: 1rem;
@@ -240,22 +210,33 @@
   padding-top: 0px;
   padding-bottom: 0px;
 }
-.time-date > .control > .slider > .time-control > .time-inputs > .hours.hours,
+.time-date > .control > .slider > .time-control > .time-inputs > .hours.hours {
+  left: 1.5rem;
+  right: 50%;
+  margin-right: 1rem;
+}
 .time-date > .control > .slider > .time-control > .time-inputs > .minutes.hours {
   left: 1.5rem;
   right: 50%;
   margin-right: 1rem;
 }
-.time-date > .control > .slider > .time-control > .time-inputs > .hours.minutes,
+.time-date > .control > .slider > .time-control > .time-inputs > .hours.minutes {
+  right: 0.7rem;
+  left: 50%;
+}
 .time-date > .control > .slider > .time-control > .time-inputs > .minutes.minutes {
   right: 0.7rem;
   left: 50%;
 }
-.time-date > .control > .slider > .time-control > .time-inputs > .hours.up,
+.time-date > .control > .slider > .time-control > .time-inputs > .hours.up {
+  top: -2.3rem;
+}
 .time-date > .control > .slider > .time-control > .time-inputs > .minutes.up {
   top: -2.3rem;
 }
-.time-date > .control > .slider > .time-control > .time-inputs > .hours.down,
+.time-date > .control > .slider > .time-control > .time-inputs > .hours.down {
+  bottom: -3rem;
+}
 .time-date > .control > .slider > .time-control > .time-inputs > .minutes.down {
   bottom: -3rem;
 }
@@ -274,16 +255,103 @@
   right: 0;
   width: 9.2rem;
 }
-.time-date.date-mode > .control > .slider {
-  left: 0%;
+.time-date > .control > .slider > .switch-control {
+  float: left;
+  height: 20.9rem;
+  width: 10%;
+  cursor: pointer;
+  padding: 0 0.6rem;
 }
-.time-date:not(.time-mode-add):not(.time-mode-remove):not(.date-mode-add):not(.date-mode-remove).date-mode > .control > .slider > .time-control > *,
+.time-date > .control > .slider > .switch-control > i.fa:first-child {
+  margin-right: 1.4rem;
+}
+.time-date > .control > .slider > .switch-control > i.fa:last-child {
+  margin-left: 1.4rem;
+}
+.time-date:not(.time-mode-add):not(.time-mode-remove):not(.date-mode-add):not(.date-mode-remove).date-mode > .control > .slider > .time-control > * {
+  display: none;
+}
 .time-date:not(.time-mode-add):not(.time-mode-remove):not(.date-mode-add):not(.date-mode-remove).time-mode > .control > .slider > .date-control > * {
   display: none;
 }
-.time-date.time-mode-add > .display,
-.time-date.time-mode-remove > .display,
-.time-date.date-mode-add > .display,
+.time-date > .buttons {
+  clear: both;
+  padding: 0.7rem;
+  text-align: right;
+}
+.time-date button {
+  color: #009688;
+}
+.time-date .button {
+  color: #009688;
+}
+.time-date:not(.full-mode).compact {
+  width: 22.8rem;
+}
+.time-date:not(.full-mode).compact > .display {
+  display: none;
+}
+.time-date:not(.full-mode).compact > .control {
+  width: 100%;
+  height: 23.2rem;
+}
+.time-date:not(.full-mode).compact > .control > .full-title {
+  display: block;
+}
+.time-date[theme=bootstrap] .btn {
+  outline: 0;
+  line-height: 2.4rem;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-weight: inherit;
+  font-size: inherit;
+}
+.time-date[theme=bootstrap] > .control > .slider > .date-control > .days > .day-cell {
+  line-height: 2.3rem;
+  border-radius: 3px;
+  text-decoration: none;
+}
+.time-date[theme=bootstrap] > .control > .slider > .date-control > .days > .day-cell:hover {
+  text-decoration: none;
+}
+.time-date[theme=bootstrap] > .control > .slider > .date-control > .days > .day-cell.today {
+  position: relative;
+}
+.time-date[theme=bootstrap] > .control > .slider > .date-control > .days > .day-cell.today::after {
+  content: " ";
+  position: absolute;
+  bottom: 0.2rem;
+  right: 0.2rem;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 0.5rem 0.5rem;
+  border-color: transparent transparent currentColor transparent;
+}
+.time-date[theme=material] .md-button {
+  padding: 6px;
+  margin: 0;
+  min-width: auto;
+  min-width: initial;
+  line-height: inherit;
+  font-size: inherit;
+}
+.time-date[theme=material] > .control > .slider > .date-control .day-cell {
+  border-radius: 3rem;
+}
+.time-date.date-mode > .control > .slider {
+  left: 0%;
+}
+.time-date.time-mode-add > .display {
+  color: transparent !important;
+}
+.time-date.time-mode-remove > .display {
+  color: transparent !important;
+}
+.time-date.date-mode-add > .display {
+  color: transparent !important;
+}
 .time-date.date-mode-remove > .display {
   color: transparent !important;
 }
@@ -293,7 +361,9 @@
 .time-date.time-mode > .control > .slider {
   left: -100%;
 }
-.time-date.date-only > .control > .slider > .switch-control,
+.time-date.date-only > .control > .slider > .switch-control {
+  display: none;
+}
 .time-date.date-only > .control > .slider > .time-control {
   display: none;
 }
@@ -308,27 +378,14 @@
   top: 0px;
   padding-top: 6.3rem;
 }
-.time-date.time-only > .control > .slider > .switch-control,
+.time-date.time-only > .control > .slider > .switch-control {
+  display: none;
+}
 .time-date.time-only > .control > .slider > .date-control {
   display: none;
 }
 .time-date.time-only > .control > .slider > .time-control {
   width: 50%;
-}
-.time-date > .display,
-.time-date > .control {
-  height: 20.9rem;
-  float: left;
-  text-align: center;
-}
-.time-date > .buttons {
-  clear: both;
-  padding: 0.7rem;
-  text-align: right;
-}
-.time-date button,
-.time-date .button {
-  color: #009688;
 }
 .time-date.full-mode > .display {
   display: none;
@@ -344,7 +401,9 @@
   float: none;
   width: 100%;
 }
-.time-date.full-mode > .control > .slider > .time-control,
+.time-date.full-mode > .control > .slider > .time-control {
+  width: 50%;
+}
 .time-date.full-mode > .control > .slider > .date-control {
   width: 50%;
 }
@@ -355,21 +414,7 @@
   background-color: #009688;
 }
 .time-date.full-mode > .buttons > button {
-/* Invert colours for bottom bar */
   color: #fff !important;
-}
-.time-date:not(.full-mode).compact {
-  width: 22.8rem;
-}
-.time-date:not(.full-mode).compact > .display {
-  display: none;
-}
-.time-date:not(.full-mode).compact > .control {
-  width: 100%;
-  height: 23.2rem;
-}
-.time-date:not(.full-mode).compact > .control > .full-title {
-  display: block;
 }
 .time-date.vertical {
   width: 23.1rem;
@@ -378,7 +423,7 @@
   width: 100%;
   height: auto;
   -webkit-transition: color 0.6s ease-in-out, height 0.6s ease-in-out;
-          transition: color 0.6s ease-in-out, height 0.6s ease-in-out;
+  transition: color 0.6s ease-in-out, height 0.6s ease-in-out;
 }
 .time-date.vertical > .display > .content {
   position: relative;
@@ -413,7 +458,10 @@
   height: auto;
   overflow: auto;
 }
-.time-date.vertical.full-mode > .control > .slider > .time-control,
+.time-date.vertical.full-mode > .control > .slider > .time-control {
+  width: 100%;
+  float: left;
+}
 .time-date.vertical.full-mode > .control > .slider > .date-control {
   width: 100%;
   float: left;
@@ -426,7 +474,7 @@
     width: 100%;
     height: auto;
     -webkit-transition: color 0.6s ease-in-out, height 0.6s ease-in-out;
-            transition: color 0.6s ease-in-out, height 0.6s ease-in-out;
+    transition: color 0.6s ease-in-out, height 0.6s ease-in-out;
   }
   .time-date > .display > .content {
     position: relative;
@@ -461,7 +509,10 @@
     height: auto;
     overflow: auto;
   }
-  .time-date.full-mode > .control > .slider > .time-control,
+  .time-date.full-mode > .control > .slider > .time-control {
+    width: 100%;
+    float: left;
+  }
   .time-date.full-mode > .control > .slider > .date-control {
     width: 100%;
     float: left;

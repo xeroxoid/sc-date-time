@@ -1,36 +1,36 @@
 /*
-	@license sc-date-time
-	@author SimeonC
-	@license 2015 MIT
-	@version 1.1.6
-	
-	See README.md for requirements and use.
+  @license sc-date-time
+ @author SimeonC
+ @license 2015 MIT
+ @version 1.1.6
+  
+  See README.md for requirements and use.
 */angular.module('scDateTime', []).value('scDateTimeConfig', {
   defaultTheme: 'material',
   autosave: false,
   defaultMode: 'date',
-  defaultDate: void 0,
-  displayMode: void 0,
+  defaultDate: undefined,
+  displayMode: undefined,
   defaultOrientation: false,
   displayTwentyfour: false,
   compact: false
 }).value('scDateTimeI18n', {
-  previousMonth: "Previous Month",
-  nextMonth: "Next Month",
-  incrementHours: "Increment Hours",
-  decrementHours: "Decrement Hours",
-  incrementMinutes: "Increment Minutes",
-  decrementMinutes: "Decrement Minutes",
-  switchAmPm: "Switch AM/PM",
-  now: "Now",
-  cancel: "Cancel",
-  save: "Save",
+  previousMonth: 'Previous Month',
+  nextMonth: 'Next Month',
+  incrementHours: 'Increment Hours',
+  decrementHours: 'Decrement Hours',
+  incrementMinutes: 'Increment Minutes',
+  decrementMinutes: 'Decrement Minutes',
+  switchAmPm: 'Switch AM/PM',
+  now: 'Now',
+  cancel: 'Cancel',
+  save: 'Save',
   weekdays: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
   switchTo: 'Switch to',
   clock: 'Clock',
   calendar: 'Calendar'
-}).directive('timeDatePicker', [
-  '$filter', '$sce', '$rootScope', '$parse', 'scDateTimeI18n', 'scDateTimeConfig', function($filter, $sce, $rootScope, $parse, scDateTimeI18n, scDateTimeConfig) {
+}).directive('timeDatePicker', ['$filter', '$sce', '$rootScope', '$parse', 'scDateTimeI18n', 'scDateTimeConfig',
+  function($filter, $sce, $rootScope, $parse, scDateTimeI18n, scDateTimeConfig) {
     var _dateFilter;
     _dateFilter = $filter('date');
     return {
@@ -45,7 +45,7 @@
           tAttrs.theme = scDateTimeConfig.defaultTheme;
         }
         if (tAttrs.theme.indexOf('/') <= 0) {
-          return "scDateTime-" + tAttrs.theme + ".tpl";
+          return 'scDateTime-' + tAttrs.theme + '.tpl';
         } else {
           return tAttrs.theme;
         }
@@ -56,25 +56,31 @@
           if (val !== 'time' && val !== 'date') {
             val = scDateTimeConfig.defaultMode;
           }
-          return scope._mode = val;
+          scope._mode = val;
+          return val;
         });
         attrs.$observe('defaultDate', function(val) {
-          return scope._defaultDate = (val != null) && Date.parse(val) ? Date.parse(val) : scDateTimeConfig.defaultDate;
+          scope._defaultDate = (val != null) && Date.parse(val) ? Date.parse(val) : scDateTimeConfig.defaultDate;
+          return scope._defaultDate;
         });
         attrs.$observe('displayMode', function(val) {
           if (val !== 'full' && val !== 'time' && val !== 'date') {
             val = scDateTimeConfig.displayMode;
           }
-          return scope._displayMode = val;
+          scope._displayMode = val;
+          return scope._displayMode;
         });
         attrs.$observe('orientation', function(val) {
-          return scope._verticalMode = val != null ? val === 'true' : scDateTimeConfig.defaultOrientation;
+          scope._verticalMode = val != null ? val === 'true' : scDateTimeConfig.defaultOrientation;
+          return scope._verticalMode;
         });
         attrs.$observe('compact', function(val) {
-          return scope._compact = val != null ? val === 'true' : scDateTimeConfig.compact;
+          scope._compact = val != null ? val === 'true' : scDateTimeConfig.compact;
+          return scope._compact;
         });
         attrs.$observe('displayTwentyfour', function(val) {
-          return scope._hours24 = val != null ? val : scDateTimeConfig.displayTwentyfour;
+          scope._hours24 = val != null ? val : scDateTimeConfig.displayTwentyfour;
+          return scope._hours24;
         });
         attrs.$observe('mindate', function(val) {
           if ((val != null) && Date.parse(val)) {
@@ -91,7 +97,8 @@
         scope._weekdays = scope._weekdays || scDateTimeI18n.weekdays;
         scope.$watch('_weekdays', function(value) {
           if ((value == null) || !angular.isArray(value)) {
-            return scope._weekdays = scDateTimeI18n.weekdays;
+            scope._weekdays = scDateTimeI18n.weekdays;
+            return scope._weekdays;
           }
         });
         ngModel.$render = function() {
@@ -100,9 +107,7 @@
         };
         angular.forEach(element.find('input'), function(input) {
           return angular.element(input).on('focus', function() {
-            return setTimeout((function() {
-              return input.select();
-            }), 10);
+            return setTimeout(input.select(), 10);
           });
         });
         scope.autosave = false;
@@ -110,7 +115,8 @@
           scope.saveUpdateDate = function() {
             return ngModel.$setViewValue(scope.date);
           };
-          return scope.autosave = true;
+          scope.autosave = true;
+          return scope.autosave;
         } else {
           saveFn = $parse(attrs.onSave);
           cancelFn = $parse(attrs.onCancel);
@@ -123,14 +129,16 @@
               $value: new Date(scope.date)
             });
           };
-          return scope.cancel = function() {
+          scope.cancel = function() {
             cancelFn(scope.$parent, {});
             return ngModel.$render();
           };
+          return scope.cancel;
         }
       },
       controller: [
-        '$scope', 'scDateTimeI18n', function(scope, scDateTimeI18n) {
+        '$scope', 'scDateTimeI18n',
+        function(scope, scDateTimeI18n) {
           var i;
           scope._defaultDate = scDateTimeConfig.defaultDate;
           scope._mode = scDateTimeConfig.defaultMode;
@@ -162,23 +170,23 @@
               var _timeString;
               _timeString = scope._hours24 ? 'HH:mm' : 'h:mm a';
               if (scope._displayMode === 'full' && !scope._verticalMode) {
-                return _dateFilter(scope.date, "EEEE d MMMM yyyy, " + _timeString);
+                return _dateFilter(scope.date, 'EEEE d MMMM yyyy, ' + _timeString);
               } else if (scope._displayMode === 'time') {
                 return _dateFilter(scope.date, _timeString);
               } else if (scope._displayMode === 'date') {
                 return _dateFilter(scope.date, 'EEE d MMM yyyy');
               } else {
-                return _dateFilter(scope.date, "d MMM yyyy, " + _timeString);
+                return _dateFilter(scope.date, 'd MMM yyyy, ' + _timeString);
               }
             },
             title: function() {
               if (scope._mode === 'date') {
-                return _dateFilter(scope.date, (scope._displayMode === 'date' ? 'EEEE' : "EEEE " + (scope._hours24 ? 'HH:mm' : 'h:mm a')));
+                return _dateFilter(scope.date, (scope._displayMode === 'date' ? 'EEEE' : 'EEEE ' + (scope._hours24 ? 'HH:mm' : 'h:mm a')));
               } else {
                 return _dateFilter(scope.date, 'MMMM d yyyy');
               }
             },
-            "super": function() {
+            'super': function() {
               if (scope._mode === 'date') {
                 return _dateFilter(scope.date, 'MMM');
               } else {
@@ -186,7 +194,7 @@
               }
             },
             main: function() {
-              return $sce.trustAsHtml(scope._mode === 'date' ? _dateFilter(scope.date, 'd') : scope._hours24 ? _dateFilter(scope.date, 'HH:mm') : (_dateFilter(scope.date, 'h:mm')) + "<small>" + (_dateFilter(scope.date, 'a')) + "</small>");
+              return $sce.trustAsHtml(scope._mode === 'date' ? _dateFilter(scope.date, 'd') : scope._hours24 ? _dateFilter(scope.date, 'HH:mm') : (_dateFilter(scope.date, 'h:mm')) + '<small>' + (_dateFilter(scope.date, 'a')) + '</small>');
             },
             sub: function() {
               if (scope._mode === 'date') {
@@ -209,7 +217,7 @@
               return results;
             })(),
             offsetMargin: function() {
-              return (new Date(this._year, this._month).getDay() * 2.7) + "rem";
+              return (new Date(this._year, this._month).getDay() * 2.7) + 'rem';
             },
             isVisible: function(d) {
               return new Date(this._year, this._month, d).getMonth() === this._month;
@@ -223,22 +231,22 @@
             },
             isPrevMonthButtonHidden: function() {
               var date;
-              date = scope.restrictions["mindate"];
+              date = scope.restrictions['mindate'];
               return (date != null) && this._month <= date.getMonth() && this._year <= date.getFullYear();
             },
             isNextMonthButtonHidden: function() {
               var date;
-              date = scope.restrictions["maxdate"];
+              date = scope.restrictions['maxdate'];
               return (date != null) && this._month >= date.getMonth() && this._year >= date.getFullYear();
             },
-            "class": function(d) {
+            'class': function(d) {
               var classString;
               classString = '';
               if ((scope.date != null) && new Date(this._year, this._month, d).getTime() === new Date(scope.date.getTime()).setHours(0, 0, 0, 0)) {
-                classString += "selected";
+                classString += 'selected';
               }
               if (new Date(this._year, this._month, d).getTime() === new Date().setHours(0, 0, 0, 0)) {
-                classString += " today";
+                classString += ' today';
               }
               return classString;
             },
@@ -313,13 +321,15 @@
             _incHours: function(inc) {
               this._hours = scope._hours24 ? Math.max(0, Math.min(23, this._hours + inc)) : Math.max(1, Math.min(12, this._hours + inc));
               if (isNaN(this._hours)) {
-                return this._hours = 0;
+                this._hours = 0;
+                return this._hours;
               }
             },
             _incMinutes: function(inc) {
               this._minutes = Math.max(0, Math.min(59, this._minutes + inc));
               if (isNaN(this._minutes)) {
-                return this._minutes = 0;
+                this._minutes = 0;
+                return this._minutes;
               }
             },
             setAM: function(b) {
@@ -368,14 +378,19 @@
             if (scope._displayMode != null) {
               scope._mode = scope._displayMode;
             }
-            return "" + (scope._verticalMode ? 'vertical ' : '') + (scope._displayMode === 'full' ? 'full-mode' : scope._displayMode === 'time' ? 'time-only' : scope._displayMode === 'date' ? 'date-only' : scope._mode === 'date' ? 'date-mode' : 'time-mode') + " " + (scope._compact ? 'compact' : '');
+            var modeClass = '' + (scope._verticalMode ? 'vertical ' : '') +
+              (scope._displayMode === 'full' ? 'full-mode' : scope._displayMode === 'time' ? 'time-only' : scope._displayMode === 'date' ? 'date-only' : scope._mode === 'date' ? 'date-mode' : 'time-mode') +
+              ' ' + (scope._compact ? 'compact' : '');
+            return modeClass;
           };
           scope.modeSwitch = function() {
             var ref;
-            return scope._mode = (ref = scope._displayMode) != null ? ref : scope._mode === 'date' ? 'time' : 'date';
+            scope._mode = (ref = scope._displayMode) != null ? ref : scope._mode === 'date' ? 'time' : 'date';
+            return scope._mode;
           };
-          return scope.modeSwitchText = function() {
-            return scDateTimeI18n.switchTo + ' ' + (scope._mode === 'date' ? scDateTimeI18n.clock : scDateTimeI18n.calendar);
+          scope.modeSwitchText = function() {
+            var modeSwitchText = scDateTimeI18n.switchTo + ' ' + (scope._mode === 'date' ? scDateTimeI18n.clock : scDateTimeI18n.calendar);
+            return modeSwitchText;
           };
         }
       ]

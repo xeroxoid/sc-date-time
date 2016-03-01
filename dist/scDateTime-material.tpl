@@ -10,7 +10,7 @@
   </div>
   <div class="control">
     <div class="full-title">{{display.fullTitle()}}</div>
-    <div class="slider"> 
+    <div class="slider">
       <div class="date-control">
         <div class="title">
           <md-button type="button" ng-click="calendar._incMonth(-1)" aria-label="{{:: translations.previousMonth}}" style="float: left;" ng-class="{'visuallyhidden': calendar.isPrevMonthButtonHidden()}"><i class="fa fa-caret-left"></i></md-button><span class="month-part">{{date | date:'MMMM'}}
